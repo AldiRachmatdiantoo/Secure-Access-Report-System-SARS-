@@ -1,5 +1,6 @@
 import com.manajkar.auth.AuthMenu
 import com.manajkar.user.OrganizeProcess
+import com.manajkar.user.User
 
 fun main() {
     val toProgram = checkYesOrNo("Ingin masuk ke program SARS? ")
@@ -31,7 +32,7 @@ fun checkYesOrNo(text: String): Boolean{
             if (list.any { it.toString() == input }) {
                 return input
             } else {
-                println("maaf, pilihan tidak ada! coba lagi")
+                println("tidak ada/salah! coba lagi")
                 continue
             }
         }

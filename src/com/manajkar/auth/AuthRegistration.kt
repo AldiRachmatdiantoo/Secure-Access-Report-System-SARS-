@@ -1,16 +1,16 @@
 package com.manajkar.auth
-import java.io.File
 import  checkNullOrBlank
 import checkYesOrNo
 import com.manajkar.user.OrganizeProcess
 import handle
 import checkList
+import com.manajkar.Admin.ListUser
 import com.manajkar.user.Role
 import com.manajkar.user.User
 
 
 class AuthRegistration {
-    val file = File("datauser.txt")
+    val saveUser = ListUser()
     val roles = Role.entries.toList()
     fun regist(){
         while (true) {
@@ -33,8 +33,13 @@ class AuthRegistration {
 
             } else {
                 val user = User(username, password, email, tglGabung, Role.valueOf(role))
-                file.appendText("nama: ${user.username} | password: ${user.password} | email: ${user.email} | role: ${user.role}")
+                saveUser.listUser.add(user)
+                for (i in saveUser.listUser){
+                    println(i)
+                }
                 handle(OrganizeProcess.Success("berhasil membuat akun!"))
+
+
                 return
             }
         }

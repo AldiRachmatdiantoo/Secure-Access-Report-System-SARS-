@@ -6,4 +6,7 @@ data class User(
     val email: String,
     val tanggalGabung: String,
     val role: Role
+
 )
+
+
